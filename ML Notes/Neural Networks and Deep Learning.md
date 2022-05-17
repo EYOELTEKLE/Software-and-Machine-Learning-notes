@@ -1,0 +1,1 @@
+#vectorization of logistion regression
