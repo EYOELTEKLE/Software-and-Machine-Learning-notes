@@ -67,3 +67,97 @@ Insertion at the first node of the LL
 
 
 ***/
+
+
+LinkedList Modified
+
+class ll
+{
+
+    constructor(value)
+    {
+       this.head = 
+       {
+           value :value,
+           next: null
+       } 
+    this.length = 1;
+    this.tail = this.head;
+    }
+    insertHead(value) 
+    {
+      const Node = 
+      {
+          value:value,
+          next:null
+      }
+        ;
+        Node.next = this.head;
+        this.head = Node;
+        this.length++;
+    }
+    insertTail(value)
+    {
+        const Node = 
+      {
+          value:value,
+          next:null
+      }
+        
+        
+        this.tail.next = Node;
+        this.tail = Node;
+        this.length++;
+        
+        
+    }
+    insert(value, position)
+    {
+        const Node = 
+      {
+          value:value,
+          next:null
+      }
+       let temp = this.head;
+        const length = this.print().length;
+        if (position >= length)
+        {
+            console.log("Out of Bound");
+            return
+        }
+        if (position === 0)
+        {
+            this.insertHead(value);
+            return
+        }
+        if (position === length - 1)
+        {
+            this.insertTail(value);
+            return
+        }
+        let i = 0;
+        while(temp != null)
+        {
+            if (position - 1 === i)
+            {
+              Node.next = temp.next;
+              temp.next = Node;
+            }
+            i++;
+            temp = temp.next;
+        }
+        this.length++;
+        
+    }
+    print()
+    {
+        let arr = [];
+        let temp = this.head;
+        while(temp != null)
+        {
+            arr.push(temp.value);
+            temp = temp.next
+        }
+        return arr
+    }
+}
