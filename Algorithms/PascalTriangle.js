@@ -21,8 +21,8 @@ var generate = function(numRows) {
          // the result is stored in the ans list we have to access it by subtracting one from the current row
          // we move the pointers by one
          //one is ahead by 1 
-         we clear the pointers back to first state after the second loop finishes
-         and clear the second list all values
+         //we clear the pointers back to first state after the second loop finishes
+        // and clear the second list all values
             {
                 let val = ans[i-1][ll] + ans[i-1][rr]
                 nest.push(val);
