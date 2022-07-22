@@ -1,0 +1,35 @@
+const reverse = (head) =>
+{
+    if(head == null || head.next == null)
+    {
+        return head;
+    }
+    let temp = reverse(head.next);
+    head.next.next = head;
+    head.next = null;
+    return temp;
+}
+var removeNthFromEnd = function(head, n) {
+    let temp = head;
+    let reversed = reverse(temp);
+    let temp2 = reversed;
+    count = 1;
+    while(temp2)
+    {
+        if(n == 1)
+        {
+            reversed = reversed.next;
+            break;
+        }
+        if (count + 1 == n)
+        {
+            temp2.next = temp2.next.next;
+        }
+        count++;
+        temp2 = temp2.next;
+    }
+    
+   let result =  reverse(reversed)
+    return result
+    
+};
