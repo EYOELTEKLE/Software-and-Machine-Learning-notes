@@ -35,11 +35,11 @@ const connectedComponents = (graph) =>
 
 const explore = (graph,path,visited) => 
 {
-    let queue = [];
+    let stack = [];
     
     stack.push(path);
     
-    while(queue.length > 0)
+    while(stack.length > 0)
     {
         let temp = stack.pop();
         if (visited.has(String(temp)))
