@@ -37,11 +37,11 @@ const explore = (graph,path,visited) =>
 {
     let queue = [];
     
-    queue.push(path);
+    stack.push(path);
     
     while(queue.length > 0)
     {
-        let temp = queue.pop();
+        let temp = stack.pop();
         if (visited.has(String(temp)))
         {
             continue;
@@ -49,7 +49,7 @@ const explore = (graph,path,visited) =>
         visited.add(String(temp));
         for (let item of graph[temp])
         {
-            queue.push(item);
+            stack.push(item);
         }
     }
 return true
