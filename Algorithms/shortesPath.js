@@ -47,13 +47,25 @@ return graph;
 //other form;
 
 
-    let depth = 0;
+   const obj = 
+{
+    a:['b','f'],
+    b:['a','c'],
+    c:['b','d','f','t'],
+    d:['c','e'],
+    e:['d','f'],
+    f:['a','c','e'],
+    t:['c']
+}
+
+const shortestPath = (obj,src,dest) =>{
+let depth = 0;
      let queue = [[src,depth]];
     let visited = new Set();
     let min = null;
     while(queue.length > 0)
     {
-        
+
          let [current,depth] = queue.shift();
          if (visited.has(current))
          {
@@ -64,12 +76,12 @@ return graph;
          {
             return depth
          }
-       
+
          for (let item of obj[current])
          {
              queue.push([item,depth+ 1])
          }
         ;
-        
+
     }
-   return min == null ? -1 :min; 
+   return min == null ? -1 :min; }
