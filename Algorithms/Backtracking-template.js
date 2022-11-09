@@ -23,6 +23,7 @@ const search = (state,solutions) =>
     if(isValid(state))
     {
         solutions.push([...state])
+        //early return possible depending on the problem
     }
     for (candidates of getCandidates(state))
     {
