@@ -2,6 +2,28 @@
  * @param {number[][]} grid
  * @return {number}
  */
+ /** optimal solution
+ Time Complexity - O(r*c)
+ Space Complexity - O(r*c)
+ **/
+var minPathSum = function(grid) {
+    const dp = new Array(grid.length+1).fill().map(() => new Array(grid[0].length+1).fill(Infinity))
+    dp[1][1] = grid[0][0];
+    for (let r = 1; r < dp.length; r++)
+    {
+        for (let c = 1; c < dp[0].length; c++)
+        {
+            if(r==1 && c==1)continue;
+            dp[r][c] = Math.min(grid[r-1][c-1] + dp[r-1][c],grid[r-1][c-1]+dp[r][c-1])
+        }
+    }
+    return dp[grid.length][grid[0].length];
+};
+
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
 var minPathSum = function(grid) {
     //bad solution using backtracking
  const set = new Set();
