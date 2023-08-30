@@ -1,0 +1,25 @@
+var leftRightDifference = function(nums) {
+    let leftSum = new Array(nums.length).fill(0);
+    let rightSum = new Array(nums.length).fill(0);
+    let prev = 0;
+    let max = 0;
+    for(let i = 0; i < nums.length; i++)
+    {
+            leftSum[i] = max
+            prev = nums[i];
+            max = max + nums[i]
+    }
+    prev = 0
+    max = 0;
+    for(let i = nums.length-1; i >= 0; i--)
+    {
+        rightSum[i] = max;
+        prev = nums[i]
+        max = max + nums[i]
+    }
+    for(let i = 0; i < leftSum.length; i++)
+    {
+        leftSum[i] = Math.abs(leftSum[i] - rightSum[i])
+    }
+    return leftSum;
+};
